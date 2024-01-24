@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 const BlogLanding = () => {
     const [blogs, setBlogs] = useState([1,2,3,4,5,6,7,8,9,10]);
+    const navigate = useNavigate();
+    const goRouteId = (blog_slug) => {
+        navigate(`/${blog_slug}`);
+    }
     useEffect(() => {
         window.makeAnimation();
     }, []);
@@ -18,7 +22,7 @@ const BlogLanding = () => {
                     <article key={blog} className="masonry__brick entry format-standard animate-this">
 
                         <div className="entry__thumb">
-                            <a href="single-standard.html" className="entry__thumb-link">
+                            <a onClick={()=>{goRouteId({blog});return}} className="entry__thumb-link">
                                 <img src="https://dealflower.it/wp-content/uploads/2021/07/travel.png"
                                     srcSet="https://dealflower.it/wp-content/uploads/2021/07/travel.png 1x, https://dealflower.it/wp-content/uploads/2021/07/travel.png 2x"
                                     alt="" />
