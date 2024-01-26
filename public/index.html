@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" id="html">
 
 <head>
   <meta charset="utf-8" />
@@ -48,6 +48,43 @@
         top: 0,
         behavior: 'smooth'
       });
+    };
+  </script>
+  <script>
+    
+
+function start_preloader() {
+  try {
+    // windows ready
+    $(document).ready(function () {
+      $WIN = $(window);
+      $("html").removeClass('ss-loaded');
+
+      var ssPreloader = function () {
+      // document.getElementById('preloader').style.display = 'block';
+      document.getElementById('loader').style.display = 'block';
+      $("html").addClass('ss-preload');
+
+
+
+          // for hero content animations 
+          $("html").removeClass('ss-preload');
+          $("html").addClass('ss-loaded');
+          $("html").removeClass('ss-loaded');
+      };
+      ssPreloader();
+    });
+  } catch (error) {
+    window.location='/';
+  }
+    };
+  </script>
+  <script>
+    function stop_preloader() {
+      document.getElementById('preloader').style.display = 'none';
+      document.getElementById('loader').style.display = 'none';
+      $("html").removeClass('ss-preload');
+      $("html").addClass('ss-loaded');
     };
   </script>
   <script>
